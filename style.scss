@@ -22,6 +22,9 @@ body {
   background: $Violet url("./../images/bg-desktop.svg") center/cover;
   display: flex;
   flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row: 160px 1fr 160px;
   padding: 1.4rem;
   overflow-x: hidden;
   @include for-phone {
@@ -42,6 +45,7 @@ main {
   img {
     width: 100%;
     height: 100%;
+    object-fit: contain;
   }
 
   .text {
