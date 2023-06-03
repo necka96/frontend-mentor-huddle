@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@600&display=swap");
+$Violet: hsl(257, 40%, 49%);
+$Soft-Magenta: hsl(300, 69%, 71%);
+@mixin for-phone {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+@mixin for-teblet {
+  @media (max-width: 900px) {
+    @content;
+  }
+}
+@mixin for-smaller-screen {
+  @media (max-width: 1230px) {
+    @content;
+  }
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
+  background: $Violet url("./../images/bg-desktop.svg") center/cover;
+  display: flex;
+  flex-direction: column;
+  padding: 1.4rem;
+  overflow-x: hidden;
+  @include for-phone {
+    background: $Violet url("./../images/bg-mobile.svg") center/cover;
+  }
+  @include for-teblet {
+    gap: 2rem;
+  }
+}
+nav {
+  img {
+    width: 160px;
+  }
+}
+main {
+  flex: 1;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .text {
+    color: #fff;
+    width: 80%;
+    @include for-teblet {
+      width: 100%;
+    }
+    h1 {
+      font-size: 2.8rem;
+      @include for-smaller-screen {
+        font-size: 1.7rem;
+      }
+    }
+    p {
+      color: $Soft-Magenta;
+      font-size: 1.1rem;
+      margin: 20px 0;
+      @include for-smaller-screen {
+        font-size: 1rem;
+      }
+    }
+  }
+  .btn {
+    background: #ffffff;
+    color: $Violet;
+    padding: 1rem 4rem;
+    display: inline-block;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+    text-decoration: none;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    &:hover {
+      background: $Soft-Magenta;
+    }
+  }
+}
+footer {
+  .icon {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    a {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      font-size: 1.2em;
+      color: #fff;
+      transition: all 0.5s ease-in-out;
+      -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      &:hover {
+        border-color: $Soft-Magenta;
+        color: $Soft-Magenta;
+        transform: scale(0.8);
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        -o-transform: scale(0.8);
+      }
+    }
+  }
+}
+h1,
+h2 {
+  font-family: "Poppins", sans-serif;
+}
+.app__flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  gap: 4rem;
+  @include for-teblet {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
